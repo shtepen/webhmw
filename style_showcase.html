@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 
+            Yay, styles!
+        </title>
+        <link rel="icon" href="favicon.ico">
+        <meta charset="UTF-8">
+        <style>
+            :root {
+                --mysize: 100%; 
+            }
+            * {
+                width: 90vw;
+            }
+            .intro {
+                height: 1rem;
+                width: max-content;
+                animation-name: fadein;
+                animation-duration: 4s;
+            }
+            .reminder {
+                font-size: 0.8rem;
+                border: ridge peachpuff;
+                padding: 0.15cm;
+                position: fixed;
+                color: rgb(252, 137, 91);
+                left: 92%;
+                width: 5%;
+                top: 5%;
+            }
+            @keyframes fadein {
+                from {
+                    padding-left: 50%;
+                    opacity: 0;
+                    font-size: calc(var(--mysize)/5);
+                    }
+                to {
+                    padding-left: 0;
+                    opacity: 1;
+                    font-size: var(--mysize);
+                    }
+            }
+            div, img:first-of-type {
+                margin-left: 1rem;
+            }
+            img {
+                display: inline-block;
+                width: 20vw;
+                border: solid turquoise;
+            }
+            #cute {
+                display: block;
+                border: dashed salmon;
+                width: 30vw;
+            }
+            @media (max-width: 600px) {
+                h1:first-of-type::after {
+                    font-size: 0.75em;
+                    color: crimson;
+                    font-weight: lighter;
+                    content: "(Please make sure to increase window size to enjoy cat pictures better)";
+                }
+            }
+            div > ol {
+                border: solid chocolate;
+                font-size: 1.1em;
+                background-color: blanchedalmond;
+            }
+            p + ol {
+                border: dotted lightseagreen;
+                font-size: 0.9em;
+                background-color: #b3fce3;
+            }
+            .test {
+                display: inline-block;
+                position: static;
+                width: 2cm;
+                height: 2cm;
+                background-color: plum;
+                border: solid purple;
+            }
+            .rel {
+                position: relative;
+                left: -0.5cm;
+                top: -0.25cm;
+            }
+            .abs {
+                position: absolute;
+                left: 1.7cm;
+                top: 0.25cm;
+            }
+            .il {
+                display: inline;
+            }
+            .bl {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <article>
+            <h1>
+                Styles
+            </h1>
+            <section>
+                <p>
+                    This page is made to demonstrate the variety of style options provided by CSS.
+                </p>
+                <p class="intro">
+                    Let's get it started!
+                </p>
+                <p class="reminder">Cats are cute!</p>
+            </section>
+            <section>
+                <p>
+                    Look at these pictures:
+                    <div>
+                        <img src="cat.jpg"> <img src="cats.jpg" id="notascute"> <img src="anothercat.jpg">
+                    </div>
+                    They are all wrapped in a nice turquoise border. But what if a cat picture
+                    is too cute and needs a special treatment? CSS allows it! As you can see,
+                    this cat: <img src="cutecat.jpeg" id="cute"> is wrapped in a different border
+                    and is a bit bigger!
+                </p>
+            </section>
+            <section>
+                <h2>Further cat-less examples</h2>
+                <h3>Position</h3>
+                <p>
+                    First of all, look at a top right corner of a window. See my message? That's a
+                    <b>fixed</b> position option which puts a fixed position on a screen for an element.
+                    Therefore, it stays even if you scroll the screen.
+                </p>
+                <p>
+                   Look at the squares below:
+                   <div>
+                       <p class="test"></p> <p class="test"></p> <p class="test"></p>
+                   </div>
+                   That's how they are supposed to be placed by default, and that position is called
+                   <b>static</b>. Now let's put the second element off of normal layout using
+                   <b>relative</b> option position:
+                   <div>
+                       <p class="test"></p> <p class="test rel"></p> <p class="test"></p>
+                    </div>
+                   Also we can use <b>absolute</b> position which fixes an element relative to it's
+                   closest positioned parent with excluding it from a normal layout for other elements.
+                   <div style="position: relative;">
+                        <p class="test"></p> <p class="test abs"></p> <p class="test"></p>
+                   </div>
+                </p>
+                <h3>Display</h3>
+                <p>
+                    Elements can also be displayed differently. These boxes are displayed inline:
+                    <p class="test il">One</p> <p class="test il">Two</p> <p class="test il">Three</p>
+                    Inline doesn't respect some properties so height and width are set to fit font size
+                    even though it is defined manually to be squared. Inline-block and block respect
+                    aforementioned properties; inline-block:
+                    <p class="test">One</p> <p class="test">Two</p> <p class="test">Three</p>, block:
+                    <p class="test bl">One</p> <p class="test bl">Two</p> <p class="test bl">Three</p>
+                    Block puts each element in its own block while inline-block allows element 'sticking'
+                    to each other.
+                </p>
+                <h3>Selector combinations</h3>
+                <p>
+                    Next three lists are put into a div container, so with the use of > they are chosen
+                    to be styled unlike the forth one.
+                </p>
+                <div>
+                    <ol>
+                        <li>One</li>
+                        <li>Two</li>
+                        <li>Three</li>
+                    </ol>
+                    <p>
+                        Next list is preceded by this paragraph, so with the use of + it is chosen to
+                        be styled differently.
+                    </p>
+                    <ol>
+                        <li>Uno</li>
+                        <li>Dos</li>
+                        <li>Tres</li>
+                    </ol>
+                    <ol>
+                        <li>Uno</li>
+                        <li>Due</li>
+                        <li>Tre</li>
+                    </ol>
+                </div>
+                <ol>
+                    <li>Eins</li>
+                    <li>Zwei</li>
+                    <li>Drei</li>
+                </ol>
+                <p>
+                    I also used , to apply margin both to first img and div.
+                </p>
+                <p style="padding: 1em 2em; border: solid red;">This is a paragraph with a padding size em relative</p>
+            </section>
+        </article>
+    </body>
+</html>
